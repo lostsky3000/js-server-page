@@ -2,6 +2,6 @@
 
 echo %JAVA_HOME%
 
-java -jar dfactor-js-server-page.jar %cd%
+java -jar js-server-page.jar %cd%
 
 pause
