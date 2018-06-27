@@ -1,17 +1,17 @@
 <?jssp 
 
 var DB_CFG = {
-	host:"rm-uf6i44g8v0cjm49k3o.mysql.rds.aliyuncs.com",
+	host:"127.0.0.1",
 	port:3306,
-	db:'mj_game',
-	user:'cli_write',
-	pwd:'sVB67!abz5HG*-d'
+	db:'db_user',
+	user:'user',
+	pwd:'pwd'
 }
 
 var REDIS_CFG = {
-	host:"106.15.37.38",
-	port:11001,
-	auth:"0A1|t!LiK8iwq5r"
+	host:"127.0.0.1",
+	port:6379,
+	auth:"pwd"
 }
 
 
