@@ -1,0 +1,46 @@
+
+<?jssp
+
+if(_INPUT){
+	echoln("has upload");
+	var content = _INPUT.content;
+	if(_INPUT.multiPart){ //multi-part
+		var partNum = content.partNum;
+		echoln("multiData: partNum="+partNum);
+		for(var i=0; i<partNum; ++i){
+			var part = content.getPart(i);
+			echoln("contentType="+part.contentType
+				+", field="+part.field+", file="+part.fileName);
+			if( !part.moveTo(_DIR_+"/"+part.fileName) ){
+				echoln("save failed: "+part.fileName);
+			}
+			
+		}
+	}else if(_INPUT.isStr){ //string
+		echoln("strData: "+content);
+	}else{  //binary
+		echoln("binData");
+	}
+}else{
+	echoln("no upload");
+}
+
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+	<form action="upload.jssp" method="post" enctype="multipart/form-data">
+		<input type="file" name="file_up_1" />
+		<input type="file" name="file_up_2" />
+		<input type="submit" value="上传文件" />
+    </form>
+</body>
+
+</html>

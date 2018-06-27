@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<?jssp
+
+error_on();
+
+var test = 1;
+require("config/function.jssp");
+?>
+
+<script type="text/javascript" src="js/test.js"></script>
+
+</head>
+<body>
+acds
+<?jssp var test2 = 1;
+echoln(_DIR_);
+echoln(_FILE_);
+
+?>
+
+<div id="div1">div1</div>
+
+<?jssp 
+	for(var i=0; i<5; ++i){
+	?>
+		<div class="line">line_<?jssp echo(i);?></div>
+	<?jssp
+	}
+	echo("UA: "+ _HEADER["User-Agent"] + "<br/>");
+	echo(_GET['name']+", 1 "+_GET['age']+"<br/>");
+	
+	echoln('hehe');
+	echoln('dada');
+	
+	var arr = {};
+	arr['name'] = 'lostsky';
+	echoln(arr['name']);
+	
+	session_start();
+	echoln("sname="+_SESSION['name']);
+	//
+	_SESSION['name'] = 'dadad';
+	//session_destroy();
+	
+	
+	//header("testname", "dada");
+	
+	echo("input: "+_INPUT);
+	
+	//
+	var db = get_mysql();
+	//"update test set field='dada' where id=1"; 
+	//"select field from test";  
+	/*var sql = "insert into test(field) values('heheda')"
+	db.sql(DB_CFG, sql,
+		function(err, rs){
+			if(!err){
+				echoln("updateCount = "+rs);
+				echoln("newId = "+db.lastInsertId);
+				//echoln("rsSize="+rs.size);
+				//var row = rs[0];
+				//echoln("rs: id="+row.id+", name="+row['field']);
+			}else{
+				echoln("err: "+err);
+			}
+		}
+	);*/
+	
+	/*
+	var conn = db.conn(DB_CFG);
+	var rs = conn.query(sql);
+	if(rs){
+		echoln("rsSize="+rs.size);
+		var row = rs[0];
+		echoln("rs="+row['12345']);
+	}else{
+		echoln("err: "+conn.error);
+	}							
+	//var num = data.size();
+	//echoln("dataNum="+num);
+	//for each(var cur in data){
+		//	echoln(cur);
+	//}
+	*/
+	
+	/*
+	var redis = get_redis();
+	conn = redis.conn(REDIS_CFG);
+	echoln(conn);
+	conn = redis.conn(REDIS_CFG);
+	echoln(conn);
+	echoln(conn.ping());
+	*/
+	/*
+	file_put("log.txt", "hehe");
+	echoln("log.txt: "+file_get("log.txt"));
+	*/
+	
+	/*
+	echoln("");
+	var url = "https://www.baidu.com";
+	var rsp = http_cli(url).send();
+	if(!rsp.err){
+		echoln("httpCli: "+rsp.content);
+	}else{
+		echoln("httpCli err: "+rsp.err);
+	}
+	echoln("");
+	*/
+	
+	//json demo
+	var jsonObj = {name:'dada', age:25, fav:['fav1', 'fav2']};
+	var jsonStr = json_encode(jsonObj);
+	echoln('jsonStr = '+jsonStr);
+	jsonObj = json_decode(jsonStr);
+	echoln("jsonEncode, name="+jsonObj.name);
+	
+	//xml decode
+	
+	var xmlStr = 
+		'<users type="user">'
+			+'<user name="dada1" age="25">dada1_25</user>'
+			+'<user name="dada2" age="25">dada2_25</user>'
+		+'</users>';
+	rsp = xml_decode(xmlStr);
+	if(rsp.err){
+		echoln("parseXml error: "+rsp.err);
+	}else{
+		var root = rsp.root
+		echoln("rootNodeInfo: tag="+root.tag+", type="+root.attr("type")
+			+", attrNum="+root.attrCount()+", type="+root.attrAt(0));
+		var children = root.children();
+		echoln("childrenNum = "+children.size());
+		for each(var u in children){
+			echoln("user: name="+u.attr("name")+", txt="+u.text);
+		}
+		//xpath
+		var user1 = root.select("//user")[0];
+		echoln("user1: name="+user1.attr("name"));
+	}
+	
+	//extLib demo
+	var user = java_new("fun.test.spi.User");
+	echoln("callExtLib: "+user.sayHello("dada"));
+	
+	?>
+	
+<!-- test -->	
+</body>
+
+<script type="text/javascript">
+	showAlert();
+</script>
+
+</html>
+
+<?jssp 
+	
+	//var str = get_echo();
+	//file_put(_DIR_+"/echo.html", str);
+
+?>
+
+
+
+
+
+
+
+

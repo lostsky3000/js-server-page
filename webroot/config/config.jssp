@@ -1,0 +1,25 @@
+<?jssp 
+
+var DB_CFG = {
+	host:"rm-uf6i44g8v0cjm49k3o.mysql.rds.aliyuncs.com",
+	port:3306,
+	db:'mj_game',
+	user:'cli_write',
+	pwd:'sVB67!abz5HG*-d'
+}
+
+var REDIS_CFG = {
+	host:"106.15.37.38",
+	port:11001,
+	auth:"0A1|t!LiK8iwq5r"
+}
+
+
+?>
+
+
+
+
+
+
+
