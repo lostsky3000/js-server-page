@@ -119,7 +119,6 @@ echoln(_FILE_);
 	echoln("jsonEncode, name="+jsonObj.name);
 	
 	//xml decode
-	
 	var xmlStr = 
 		'<users type="user">'
 			+'<user name="dada1" age="25">dada1_25</user>'
@@ -144,7 +143,12 @@ echoln(_FILE_);
 	
 	//extLib demo
 	var user = java_new("fun.test.spi.User");
-	echoln("callExtLib: "+user.sayHello("dada"));
+	if(user){
+		echoln("callExtLib: "+user.sayHello("dada"));
+	}else{
+		echoln("extClass not loaded");
+	}
+	
 	
 	?>
 	
