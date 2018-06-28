@@ -3,7 +3,7 @@
 var hosts = [
 {
 	port:8080,
-	root:'F:/dev/guaji/svn/program/server/src/dfactorjs-web/runtime/webroot',
+	root:'example',
 	//sfx:'php',
 	//ssl:{pub:'ddd', pri:''},
 	//server_name:'nginx',
