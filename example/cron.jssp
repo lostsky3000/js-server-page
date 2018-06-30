@@ -1,0 +1,9 @@
+
+<?jssp
+
+file_put(_DIR_+"/cron.log","hehe\n\r",true);
+
+?>
+
+
+

@@ -1,0 +1,10 @@
+
+
+<?jssp
+
+echoln("hehehe");
+
+forward("/test.jssp");
+
+?>
+

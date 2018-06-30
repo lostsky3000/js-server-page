@@ -17,6 +17,6 @@ cd ..
 
 echo ExtJars=%jarStr%
 
-java -Xbootclasspath/a:%jarStr% -jar js-server-page.jar %dir%
+java -Xbootclasspath/a:%jarStr% -jar bin/js-server-page.jar %dir%
 
 pause
