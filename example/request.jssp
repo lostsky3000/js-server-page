@@ -1,0 +1,17 @@
+
+<?jssp
+
+
+//get header from '_HEADER'
+//http请求的header信息存储在_HEADER
+echoln('UserAgent: '+ _HEADER['User-Agent']);
+
+//get params from '_GET'(method is GET) or '_POST'(method is POST)
+//http请求的参数信息存储在 _GET(如果请求method为GET) 或 _POST(如果请求method为POST)
+echoln('name='+_GET['name']+", age="+_GET['age']);
+
+
+
+?>
+
+

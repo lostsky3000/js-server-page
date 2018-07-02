@@ -2,12 +2,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta charset="UTF-8">
 </head>
 
 <body>
 
-welcome to dfactor-js
+<?jssp
+
+	//use echo() & echoln() to response
+	echoln('welcome to js-server-page');
+	
+	echoln('<br/>==== use echo() & echoln() to response');
+	echo('line1 by echo() <br/>');
+	echoln('line2 by echoln()');
+	echoln('line3 by echoln()');
+?>
+
+
+<?jssp 
+	echoln('<br/>==== dynamic response div====');
+	//dynamic response div 
+	for(var i=0; i<5; ++i){
+?>
+	<div>div_<?jssp echo(i);?></div>
+<?jssp 	
+	}
+?>
+
+<br/><br/>
+====&nbsp;other demos<br/>
+<div><a href="request.jssp?name=dada&age=25" target="_blank">handle request(处理请求)</a></div>
+
+<br/>
+<div><a href="session.jssp" target="_blank">session 示例</a></div>
 
 </body>
 

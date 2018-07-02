@@ -1,0 +1,17 @@
+
+<?jssp
+
+session_start();
+
+var sname = _SESSION['name'];
+
+if(sname){
+	echoln('has name');
+}else{
+	echoln('no name in session');
+}
+
+
+?>
+
+
