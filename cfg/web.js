@@ -9,7 +9,8 @@ var hosts = [
 	//server_name:'nginx',
 	//session_expire = 2000,
 	//error_report : true,
-	req_max_size:10,    //max request-data-size in MB
+	//index:['index.html', 'index.jssp'],
+	//req_max_size:10,    //max request-data-size in MB
 }
 
 /*
