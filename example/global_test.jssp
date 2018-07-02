@@ -1,0 +1,24 @@
+
+<?jssp
+
+var num = 168;
+setGlobal("num", num);
+
+echoln("gNum="+getGlobal("num"));
+
+
+var gUser = {};
+setGlobal("gUser", gUser);
+modifyGlobal("gUser",
+	function(data){
+		if(data){
+			data.name="dada";
+		}
+	}
+);
+
+echoln("gUserName = "+gUser.name);
+
+?>
+
+
