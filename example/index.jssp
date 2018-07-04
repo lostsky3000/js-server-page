@@ -6,13 +6,14 @@
 </head>
 
 <body>
-
+<center>
+<br/>
 <?jssp
 
 	//use echo() & echoln() to response
 	echoln('welcome to js-server-page');
 	
-	echoln('<br/>==== use echo() & echoln() to response');
+	echoln('<br/>==== use echo() & echoln() to response ====');
 	echo('line1 by echo() <br/>');
 	echoln('line2 by echoln()');
 	echoln('line3 by echoln()');
@@ -22,7 +23,7 @@
 <?jssp 
 	echoln('<br/>==== dynamic response div====');
 	//dynamic response div 
-	for(var i=0; i<5; ++i){
+	for(var i=0; i<3; ++i){
 ?>
 	<div>div_<?jssp echo(i);?></div>
 <?jssp 	
@@ -30,12 +31,55 @@
 ?>
 
 <br/><br/>
-====&nbsp;other demos<br/>
+====&nbsp;demos&nbsp;====<br/>
+<br/>
 <div><a href="request.jssp?name=dada&age=25" target="_blank">handle request(处理请求)</a></div>
 
 <br/>
 <div><a href="session.jssp" target="_blank">session 示例</a></div>
 
+<br/>
+<div><a href="json.jssp" target="_blank">json encode&decode (json编解码示例)</a></div>
+
+<br/>
+<div><a href="xml.jssp" target="_blank">xml (xml操作示例)</a></div>
+
+<br/>
+<div><a href="file_io.jssp" target="_blank">file io (文件读写示例)</a></div>
+
+<br/>
+<div><a href="include.jssp" target="_blank">include other file (引用其它代码文件示例)</a></div>
+
+<br/>
+<div><a href="upload.jssp" target="_blank">upload file (上传文件示例)</a></div>
+
+<br/>
+<div><a href="http_client.jssp" target="_blank">httpClient (发起http请求示例)</a></div>
+
+<br/>
+<div><a href="forward.jssp?sign=123" target="_blank">forward (请求转发，资源访问控制示例)</a></div>
+
+<br/>
+<div><a href="write_html.jssp" target="_blank">write_html (获取页面当前输出，静态化示例)</a></div>
+
+<br/>
+<div><a href="mysql.jssp" target="_blank">mysql (mysql操作示例)</a></div>
+
+<br/>
+<div><a href="redis.jssp" target="_blank">redis (redis操作示例)</a></div>
+
+</center>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+

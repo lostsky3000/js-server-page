@@ -1,0 +1,51 @@
+
+<?jssp
+
+
+//xml decode
+//xml解码
+var xmlStr = 
+		'<users type="user">'
+			+'<user name="dada1" age="25">dada1_25</user>'
+			+'<user name="dada2" age="26">dada2_26</user>'
+		+'</users>';
+
+//get decode result
+//获取解码结果
+var ret = xml_decode(xmlStr);
+
+if(ret.err){ //decode failed;(解码失败)
+	echoln("parseXml error: "+ret.err);
+}else{  //decode succ; 解码成功
+	//get root dom node
+	//获取dom根节点
+	var root = ret.root
+	echoln("rootNodeInfo: tag="+root.tag+", type="+root.attr("type")
+			+", attrNum="+root.attrCount()+", type="+root.attrAt(0));
+	//get children nodes
+	//获取当前节点的子节点
+	var children = root.children();
+	echoln("childrenNum = "+children.size());
+	
+	//iterator children node 
+	//遍历子节点
+	for each(var u in children){
+		echoln("user: name="+u.attr("name")+", txt="+u.text);
+	}
+	
+	//use xpath
+	//使用xpath直接访问节点
+	var user1 = root.select("//user")[0];
+	echoln("user1: name="+user1.attr("name"));
+}
+
+
+
+
+?>
+
+
+
+
+
+

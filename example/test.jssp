@@ -42,7 +42,7 @@ echoln(_FILE_);
 	session_start();
 	echoln("sname="+_SESSION['name']);
 	//
-	_SESSION['name'] = 'dadad';
+	//_SESSION['name'] = 'dadad';
 	//session_destroy();
 	
 	

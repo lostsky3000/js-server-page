@@ -2,9 +2,9 @@
 <?jssp
 
 if(_ARG){
-	file_put(_DIR_+"/cron.log", "argNum="+_ARG.size()+", arg[0]="+_ARG[0]+"\n\r", true);
+	file_put(_DIR_+"/log/cron.log", time()+": argNum="+_ARG.size()+", arg[0]="+_ARG[0]+"\n", true);
 }else{
-	file_put(_DIR_+"/cron.log", "hehe\n\r", true);
+	file_put(_DIR_+"/log/cron.log", time()+": no args\n", true);
 }
 
 

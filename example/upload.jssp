@@ -1,28 +1,27 @@
 
 <?jssp
 
-if(_INPUT){
-	echoln("has upload");
+if(_INPUT){ //has upload data; 有请求数据
+	echoln("has request content");
 	var content = _INPUT.content;
-	if(_INPUT.multiPart){ //multi-part
-		var partNum = content.partNum;
+	if(_INPUT.multiPart){ //multi-part; 类型为multi-part，表示上传文件
+		var partNum = content.partNum; //文件数量
 		echoln("multiData: partNum="+partNum);
 		for(var i=0; i<partNum; ++i){
 			var part = content.getPart(i);
-			echoln("contentType="+part.contentType
+			//get file info; 获取文件信息
+			echoln("contentType="+part.contentType   
 				+", field="+part.field+", file="+part.fileName);
-			if( !part.moveTo(_DIR_+"/"+part.fileName) ){
+			//save file; 保存文件
+			if( !part.moveTo(_DIR_+"/upload/"+part.fileName) ){
 				echoln("save failed: "+part.fileName);
 			}
-			
 		}
-	}else if(_INPUT.isStr){ //string
+	}else if(_INPUT.isStr){ //string,上传的content不是文件而是字符串
 		echoln("strData: "+content);
-	}else{  //binary
-		echoln("binData");
 	}
 }else{
-	echoln("no upload");
+	echoln("no request content");
 }
 
 ?>
@@ -33,13 +32,11 @@ if(_INPUT){
 <html>
 <head>
 </head>
-
 <body>
-
 	<form action="upload.jssp" method="post" enctype="multipart/form-data">
 		<input type="file" name="file_up_1" />
 		<input type="file" name="file_up_2" />
-		<input type="submit" value="上传文件" />
+		<input type="submit" value="Upload;上传文件" />
     </form>
 </body>
 

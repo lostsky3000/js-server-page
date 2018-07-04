@@ -4,13 +4,30 @@
 
 //get header from '_HEADER'
 //http请求的header信息存储在_HEADER
-echoln('UserAgent: '+ _HEADER['User-Agent']);
+echoln('==== headers:');
+echoln('UserAgent = '+ _HEADER['User-Agent']);
+//iterator headers  
+//遍历header
+for(var name in _HEADER){
+	echoln(name+' = '+_HEADER[name]);
+}
+
 
 //get params from '_GET'(method is GET) or '_POST'(method is POST)
 //http请求的参数信息存储在 _GET(如果请求method为GET) 或 _POST(如果请求method为POST)
+echoln('');
+echoln('==== handle request param');
 echoln('name='+_GET['name']+", age="+_GET['age']);
+//iterator request param 
+//遍历请求参数
+for(var name in _GET){
+	echoln(name+' = '+_GET[name]);
+}
 
-
+//add response header 
+//添加响应中的header数据
+header('my-key1', 'my-val2');
+header('my-key2', 'my-val2');
 
 ?>
 

@@ -1,0 +1,10 @@
+
+<?jssp
+
+include('config.jssp');
+
+echoln('dbHost='+DB_CFG['host']+', dbPort='+DB_CFG['port']);
+
+?>
+
+

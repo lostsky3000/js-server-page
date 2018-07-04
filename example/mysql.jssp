@@ -1,0 +1,95 @@
+
+<?jssp
+
+var dbCfg = {
+	host:'127.0.0.1',
+	port:3306,
+	db:'db_test',
+	user:'user',
+	pwd:'pwd'
+};
+
+//get db object
+//获取mysql实例
+var db = load_lib('mysql');
+
+//execute single sql
+//执行单条sql
+var sql = 'select 1 as num';
+//var sql = "insert into user(name) values('dada')";
+db.sql(dbCfg, sql,
+	function(err, ret){
+		if(!err){  //execute succ;执行成功
+			//parse query result; 解析查询结果
+			echoln("resultSize="+ret.size);
+			var row = ret[0];
+			echoln('num = '+row.num);
+			
+			//parse CUD result; 解析增删改结果
+			/*
+			echoln("updateCount = "+ret);
+			echoln("newId = "+db.lastInsertId);
+			*/
+		}else{  //execute failed;执行失败
+			echoln('exeSql failed: '+err);
+		}
+	}
+);
+
+
+
+//execute multi sql 
+//执行多条sql
+var conn = db.conn(dbCfg);
+if(conn){
+	sql = 'select 1 as num';
+	//sql = "insert into user(name) values('dada')";
+	for(var i=0; i<2; ++i){
+		echoln('======== query_'+i);
+		var ret = conn.query(sql);
+		if(ret){
+			//parse query result; 解析查询结果 
+			echoln("resultSize="+ret.size);
+			var row = ret[0];
+			echoln("num="+row.num);
+			
+			//parse CUD result;解析增删改结果 
+			/*
+			echoln("updateCount = "+ret);
+			echoln("newId = "+db.lastInsertId);
+			*/
+		}else{
+			echoln("err: "+conn.error);
+		}
+	}
+}else{
+	echoln('getConn error: '+db.lastError);
+}
+
+
+
+
+//use transaction
+//使用事务
+/*
+conn.autocommit(false);
+
+//do work
+
+conn.commit();   //commit transaction;提交事务
+//conn.rollback(); //rollback transaction;回滚事务
+
+*/
+
+?>
+
+
+
+
+
+
+
+
+
+
+

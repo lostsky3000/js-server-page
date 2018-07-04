@@ -1,0 +1,25 @@
+
+<?jssp
+
+var redisCfg = {
+	host:'106.15.37.38',
+	port:11001,
+	auth:'0A1|t!LiK8iwq5r'
+};
+
+//get redis object
+//获取redis实例
+var redis = load_lib('redis');
+
+//get redis connection
+//获取连接
+var conn = redis.conn(redisCfg);
+if(conn){
+	echoln('pingResult = '+conn.ping());
+}else{
+	echoln('conn redis err: '+redis.lastError);
+}
+
+?>
+
+

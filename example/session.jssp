@@ -3,15 +3,33 @@
 
 session_start();
 
-var sname = _SESSION['name'];
-
-if(sname){
-	echoln('has name');
-}else{
-	echoln('no name in session');
+if(_GET['act']){  //destroy session
+	session_destroy();
 }
+
+//check session 
+var name = _SESSION['name'];
+if(name){
+	echoln('has name in session: '+name);
+}else{
+	echoln('no name in session, set name=dada');
+	_SESSION['name'] = 'dada';
+}
+
 
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<br/>
+<a href="session.jssp?act=destroy">destroy session(销毁当前session)</a>
+<br/><br/>
+<a href="session.jssp">refresh(刷新页面)</a>
+</body>
+</html>
 

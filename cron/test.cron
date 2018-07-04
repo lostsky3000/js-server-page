@@ -1,3 +1,15 @@
 
 
-#* * * * * * F:/dev/guaji/svn/program/server/src/dfactorjs-web/runtime/example/cron.jssp args0 args2
+
+# format: second, minute, hour, dayOfMonth, month, weekDay
+# 格式：秒, 分钟, 小时, 日, 月, 星期中的天
+
+#e.g  * * * * * * /var/web/root/cron.jssp  每秒执行一次
+#e.g  5/2 * * * * * /var/web/root/cron.jssp  每分钟第5秒开始每两秒执行一次
+#e.g  5,15,30 * * * * * /var/web/root/cron.jssp  每分钟第5,15,30秒执行
+#e.g  5-15 * * * * * /var/web/root/cron.jssp  每分钟第5秒开始到第15秒，每秒执行一次
+
+#分钟,小时,日,月表达式和秒一样, 星期中的天从1~7表示周日~周六
+
+
+#* * * * * * /var/web/root/cron.jssp args0 args2

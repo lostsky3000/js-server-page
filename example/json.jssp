@@ -1,0 +1,17 @@
+<?jssp
+
+
+//json demo
+var jsonObj = {name:'dada', age:25, fav:['fav1', 'fav2']};
+var jsonStr = json_encode(jsonObj);
+echoln('jsonStr after encode = '+jsonStr);
+	
+jsonObj = json_decode(jsonStr);
+echoln('');
+echoln('jsonObj after decode, name='+jsonObj.name);
+
+
+
+
+
+?>

@@ -1,0 +1,13 @@
+
+<?jssp
+
+var DB_CFG = {
+	'host':'127.0.0.1',
+	'port':3306,
+	'db':'db_test',
+	'user':'user',
+	'pwd':'pwd'
+};
+
+?>
+

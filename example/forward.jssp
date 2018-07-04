@@ -2,9 +2,17 @@
 
 <?jssp
 
-echoln("hehehe");
+//forward to a uri, such as resource access control
+//将请求转发到其它资源地址
+//应用场景:可用于资源访问控制
 
-forward("/test.jssp");
+if(_GET['sign'] && _GET['sign']=='123'){
+	forward("/img/bg.jpg");
+}else{
+	response_code(404);
+}
+
+
 
 ?>
 

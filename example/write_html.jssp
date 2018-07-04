@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+
+<?jssp
+	for(var i=0; i<5; ++i){
+?>
+	<div>div_<?jssp echo(i);?></div>
+<?jssp	
+	}
+?>
+
+
+</body>
+</html>
+
+
+<?jssp
+//get echo content & write to file
+//获取当前全部输出内容并写入文件
+var content = get_echo();
+file_put(_DIR_+'/html/write_html.html', content);
+
+?>

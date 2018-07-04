@@ -1,0 +1,21 @@
+
+
+
+<?jssp
+
+var url = "https://www.baidu.com";
+var rsp = http_cli(url)
+			//.method('get')    //default is get;默认请求方法为get
+			//.header('name', 'val')  //set header;设置请求header
+			//.contentType('text/plain')  //setContentType; 设置请求数据类型(get时无效)
+			.send();
+if(!rsp.err){
+	echoln("httpCli: "+rsp.content);
+}else{
+	echoln("httpCli err: "+rsp.err);
+}
+
+?>
+
+
+

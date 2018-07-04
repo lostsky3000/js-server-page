@@ -1,0 +1,18 @@
+
+<?jssp
+
+echoln('cur dir is '+_DIR_);
+
+//write file, file_put(filePath, conteng, isAppend);
+//写文件示例，参数列表：文件路径，内容，是否追加到文件尾部
+file_put(_DIR_+'/log/file_io.log', 'log time='+time()+'\n', true);
+
+//read file content 
+//读取文件内容
+var content = file_get(_DIR_+'/log/file_io.log');
+echoln('');
+echoln('read file, content='+content);
+
+?>
+
+
